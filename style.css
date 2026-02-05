@@ -1,8 +1,14 @@
+@import "./colors.css";
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
 .card-content {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--card-border-color);
   padding: 15px;
   align-items: center;
   max-height: fit-content;
@@ -11,6 +17,7 @@
 .card-content__title {
   font-size: 1.5em;
   font-weight: bold;
+  color: var(--title-color);
 }
 .card-content__image { 
   width: 100%;
@@ -20,12 +27,12 @@
 }
 .card-content__description {
   font-size: 1em;
-  color: #555;
+  color: var(--description-color);
   text-align: left;
 }
 .card-content__price {  
   font-size: 1.2em;
-  color: #000;
+  color: var(--price-color);
 }
 .card-content__price span {
   font-size: 0.8em;
@@ -33,8 +40,8 @@
 }
 .buy-btn {  
   padding: 10px 20px;
-  background-color: #28a745;
-  color: white;
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -42,5 +49,13 @@
   transition: all 0.3s ease;
 }
 .buy-btn:hover {
-  background-color: #218838;
+  background-color: var(--button-hover-bg-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (min-width:480px) {
+  .card-content {
+    width: 100%;
+  }
 }
