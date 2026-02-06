@@ -7,4 +7,8 @@
   --button-bg-color: #28a745;
   --button-hover-bg-color: #218838;
   --button-text-color: #fff;
+  --like-button-bg-color: #7bb1eb;
+  --like-button-hover-bg-color: #3195ff;
+  --like-button-active-bg-color: #213c85;
+  --like-counter-color: #ea0d0d;
 }

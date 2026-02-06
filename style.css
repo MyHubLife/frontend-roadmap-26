@@ -3,13 +3,11 @@
 body {
   font-family: "Roboto", sans-serif;
 }
-
 .card-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
-
 .card-content {
   display: flex;
   flex-direction: column;
@@ -64,7 +62,34 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
+.like-btn {
+  padding: 10px 20px;
+  background-color: var(--like-button-bg-color);
+  color: var(--button-text-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: all 0.3s ease;
+}
+.like-btn:hover {
+  background-color: var(--like-button-hover-bg-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.like-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+  background-color: var(--like-button-active-bg-color);
+}
+.like-counter {
+  margin-top: 20px;
+  font-size: 1.2em;
+  color: var(--like-counter-color);
+}
+.active {
+  background-color: var(--like-button-active-bg-color);
+}
 @media screen and (max-width:992px) {
   .card-container {
     grid-template-columns: repeat(2, 1fr);
