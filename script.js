@@ -17,3 +17,10 @@ LikeBtn.forEach(btn => {
     LikeCountDisplay.textContent = totalLikes;
   });
 });
+
+const userNameInput = document.getElementById('user-name');
+const displayNameSpan = document.getElementById('display-name');
+
+userNameInput.addEventListener('input', function () {
+  displayNameSpan.textContent = this.value || `Guest`;
+});
