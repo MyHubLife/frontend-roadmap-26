@@ -4,6 +4,7 @@ const LikeCountDisplay = document.getElementById('likeCount');
 const LikeBtn = document.querySelectorAll('.like-btn');
 
 let totalLikes = 0;
+let myTasks = [];
 
 LikeBtn.forEach(btn => {
   btn.addEventListener('click', function () {
@@ -27,10 +28,24 @@ userNameInput.addEventListener('input', function () {
   displayNameSpan.textContent = this.value || `Guest`;
 });
 
+// addBtn.addEventListener('click', function () {
+//   const newItem = document.createElement('div');
+//   console.log(userNameInput.value);
+//   newItem.textContent = userNameInput.value;
+//   newItem.classList.add('item');
+//   itemLists.appendChild(newItem);
+// });
+
+function render() { 
+  itemLists.innerHTML = '';
+  myTasks.forEach(task => {
+    itemLists.innerHTML += `<div class="item">${task}</div>`;
+  });
+}
+
 addBtn.addEventListener('click', function () {
-  const newItem = document.createElement('div');
-  console.log(userNameInput.value);
-  newItem.textContent = userNameInput.value;
-  newItem.classList.add('item');
-  itemLists.appendChild(newItem);
+  myTasks.push(userNameInput.value);
+  console.log(myTasks);
+  render();
+  userNameInput.value = '';
 });
