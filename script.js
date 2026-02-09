@@ -20,7 +20,17 @@ LikeBtn.forEach(btn => {
 
 const userNameInput = document.getElementById('user-name');
 const displayNameSpan = document.getElementById('display-name');
+const addBtn = document.getElementById('add-btn');
+const itemLists = document.querySelector('.item-lists');
 
 userNameInput.addEventListener('input', function () {
   displayNameSpan.textContent = this.value || `Guest`;
+});
+
+addBtn.addEventListener('click', function () {
+  const newItem = document.createElement('div');
+  console.log(userNameInput.value);
+  newItem.textContent = userNameInput.value;
+  newItem.classList.add('item');
+  itemLists.appendChild(newItem);
 });
