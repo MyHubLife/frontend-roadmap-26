@@ -55,7 +55,8 @@ const addTaskBtn = document.querySelector('.add-task-btn');
 const taskItem = document.querySelector('.task-item'); 
 const delTaskBtn = document.querySelector('.delete-task-btn');
 
-let taskList = [];
+// let taskList = [];
+let taskList = JSON.parse(localStorage.getItem('tasks')) || [];
 
 function renderTask() {
   const taskItem = document.getElementById('task-item');
@@ -67,6 +68,7 @@ function renderTask() {
     <button class="delete-task-btn" onclick="deleteTask(${task.id})">Delete</button>
     </div>`;
   });
+  localStorage.setItem('tasks', JSON.stringify(taskList));
 }
 
 function deleteTask(id) {
@@ -84,3 +86,4 @@ addTaskBtn.addEventListener('click', function () {
   Input.value = '';
 });
 
+renderTask();
