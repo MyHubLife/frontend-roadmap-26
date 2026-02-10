@@ -4,7 +4,7 @@ const LikeCountDisplay = document.getElementById('likeCount');
 const LikeBtn = document.querySelectorAll('.like-btn');
 
 let totalLikes = 0;
-let myTasks = [];
+let myItem = [];
 
 LikeBtn.forEach(btn => {
   btn.addEventListener('click', function () {
@@ -38,14 +38,49 @@ userNameInput.addEventListener('input', function () {
 
 function render() { 
   itemLists.innerHTML = '';
-  myTasks.forEach(task => {
-    itemLists.innerHTML += `<div class="item">${task}</div>`;
+  myItem.forEach(title => {
+    itemLists.innerHTML += `<div class="item">${title}</div>`;
   });
 }
 
 addBtn.addEventListener('click', function () {
-  myTasks.push(userNameInput.value);
-  console.log(myTasks);
+  myItem.push(userNameInput.value);
+  console.log(myItem);
   render();
   userNameInput.value = '';
 });
+
+const Input = document.getElementById('task-input');
+const addTaskBtn = document.querySelector('.add-task-btn');
+const taskItem = document.querySelector('.task-item'); 
+const delTaskBtn = document.querySelector('.delete-task-btn');
+
+let taskList = [];
+
+function renderTask() {
+  const taskItem = document.getElementById('task-item');
+  taskItem.innerHTML = '';
+  taskList.forEach(task => {
+    taskItem.innerHTML += `<div class="task-card">
+    <div class="task-id">ID: ${task.id}</div>
+    <div class="task-text">TASK: ${task.text}</div>
+    <button class="delete-task-btn" onclick="deleteTask(${task.id})">Delete</button>
+    </div>`;
+  });
+}
+
+function deleteTask(id) {
+  taskList = taskList.filter(task => task.id !== id);
+  renderTask();
+}
+
+addTaskBtn.addEventListener('click', function () {
+  const newTask = {
+    id: Date.now(),
+    text: Input.value
+  };
+  taskList.push(newTask);
+  renderTask();
+  Input.value = '';
+});
+
